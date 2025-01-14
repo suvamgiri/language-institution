@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Korean Learning</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* General Reset */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+        }
+        /* Hero Section with Background Image */
+        
+        .hero {
+            background-image: url('https://images.pexels.com/photos/402028/pexels-photo-402028.jpeg?auto=compress&cs=tinysrgb&w=600');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            position: relative;
+            color: white;
+        }
+        
+        @media(max-width: 700px) {
+            .hero {
+                background-image: url('https://images.pexels.com/photos/402028/pexels-photo-402028.jpeg?auto=compress&cs=tinysrgb&w=600');
+                background-size: cover;
+                background-position: center;
+                height: 60vh;
+                position: relative;
+                color: white;
+            }
+        }
+        
+        .navbar-container {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 10px 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar .nav-link,
+        .navbar-brand {
+            color: black !important;
+            font-weight: bold;
+        }
+        
+        .navbar .nav-link:hover {
+            color: #28a745 !important;
+        }
+        
+        .enroll-btn {
+            background-color: #b5ff4e;
+            color: black;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .enroll-btn:hover {
+            background-color: #a0e846;
+        }
+        
+        .herosecion {
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+        }
+        
+        .why-best-section {
+            background-color: #1e1e2d;
+            color: #fff;
+            padding: 60px 20px;
+        }
+        
+        .why-best-section h2 {
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .why-best-section p {
+            color: #ccc;
+            font-size: 16px;
+        }
+        
+        .icon-card {
+            background: #28293e;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .icon-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .icon-card i {
+            font-size: 40px;
+            margin-bottom: 15px;
+            display: inline-block;
+            color: #00d1b2;
+        }
+        
+        .icon-card h4 {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .icon-card p {
+            font-size: 14px;
+        }
+        
+        .card {
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .flag-icon {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+        
+        .card-price {
+            color: #6c63ff;
+            font-weight: bold;
+        }
+        
+        .card-footer {
+            background-color: white;
+            border-top: none;
+        }
+        
+        .rating {
+            display: flex;
+            align-items: center;
+        }
+        
+        .rating i {
+            color: #FFD700;
+        }
+        
+        .course-card {
+            border-radius: 15px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease-in-out;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .course-image {
+            height: 150px;
+            object-fit: cover;
+        }
+        
+        .course-body {
+            padding: 15px;
+        }
+        
+        .price-old {
+            text-decoration: line-through;
+            color: #888;
+            margin-right: 10px;
+        }
+        
+        .price-new {
+            font-weight: bold;
+            color: #e74c3c;
+        }
+        
+        .buy-btn {
+            background-color: #ff5722;
+            color: #fff;
+            font-weight: bold;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .buy-btn:hover {
+            background-color: #e64a19;
+        }
+        
+        .favorite-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #fff;
+            border-radius: 50%;
+            padding: 5px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .secation1 {
+            background: linear-gradient(145deg, #ffffff, #f0f3f9);
+            border-radius: 15px;
+            padding: 40px 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .faq-header {
+            font-size: 32px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .faq-description {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .accordion-button {
+            background-color: #ffffff;
+            color: #333;
+            font-weight: 500;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .accordion-button:hover {
+            background-color: #5b67f2;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+        
+        .accordion-button:not(.collapsed) {
+            background-color: #5b67f2;
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(91, 103, 242, 0.4);
+        }
+        
+        .accordion-item {
+            border: none;
+            margin-bottom: 15px;
+        }
+        
+        .accordion-body {
+            background-color: #ffffff;
+            color: #555;
+            font-size: 16px;
+            line-height: 1.8;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        @media (max-width: 768px) {
+            #hide {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="navbar-container">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">Korean Learning</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+
+                            <li class="nav-item">
+                                <a class="nav-link text-primary" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link " href="newpageabout.html">About Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="instructor.html">Instructors</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contract.html">Contract</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link " href="galeary.html">Gallery</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="courses.html">Courses</a>
+                            </li>
+                        </ul>
+                        <a href="enroole.html" class="btn enroll-btn ms-3 btn-success">Enroll Now</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <section class="herosecion">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h1 class="fw-bold mb-4">Our mission is to provide <span class="text-primary">Best</span> Services</h1>
+                        <a class="btn btn-lg btn-primary" href="#">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>'
+    <section class="py-5">
+        <div class="container">
+            <div class="carousel slide pointer-event " data-bs-ride="carousel" id="galleryCarouse1">
+                <div class="carousel-inner" style="height: 126px;">
+                    <div class="carousel-item active">
+                        <div class="row gy-3">
+                            <div class="col-6 col-md-3">
+                                <img alt="Image 1" class="img-fluid rounded-1 h-50" src="https://flagpedia.net/data/flags/w580/in.webp">
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <img alt="Image 2" class="img-fluid rounded-1 h-50" src="https://flagpedia.net/data/flags/w580/in.webp">
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <img alt="Image 3" class="img-fluid rounded-1 h-50" id="hide" src="https://flagpedia.net/data/flags/w580/in.webp">
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <img alt="Image 4" class="img-fluid rounded-1 h-50" id="hide" src="https://flagpedia.net/data/flags/w580/in.webp">
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row gy-3">
+                            <div class="col-6 col-md-3">
+                                <img alt="Image 5" class="img-fluid rounded-1 h-50" src="https://flagpedia.net/data/flags/w580/cn.webp">
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <img alt="Image 6" class="img-fluid rounded-1 h-50" src="https://flagpedia.net/data/flags/w580/cn.webp">
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <img alt="Image 7" class="img-fluid rounded-1 h-50" id="hide" src="https://flagpedia.net/data/flags/w580/cn.webp">
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <img alt="Image 8" class="img-fluid rounded-1 h-50" id="hide" src="https://flagpedia.net/data/flags/w580/cn.webp">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#galleryCarouse1" type="button">
+                    <span aria-hidden="true" class="carousel-control-prev-icon"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" data-bs-slide="next" data-bs-target="#galleryCarouse1" type="button">
+                    <span aria-hidden="true" class="carousel-control-next-icon"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5" style="background-color:#eeedfd;">
+        <div class="container">
+            <div class="row gx-4 align-items-center justify-content-between">
+                <div class="col-md-5 order-2 order-md-1">
+                    <div class="mt-5 mt-md-0">
+                        <span class="text-muted">Our Story</span>
+                        <h2 class="display-5 fw-bold">About Us</h2>
+                        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris .</p>
+                        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 offset-md-1 order-1 order-md-2">
+                    <div class="row gx-2 gx-lg-3">
+                        <div class="col-6">
+                            <div class="mb-2"><img class="img-fluid rounded-3" src="https://plus.unsplash.com/premium_photo-1661347828110-435a158faa8e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y29tcHV0ZXIlMjBjbGFzc3xlbnwwfHwwfHx8MA%3D%3D"></div>
+                        </div>
+                        <div class="col-6">
+                            <div class="mb-2"><img class="img-fluid rounded-3" src="https://plus.unsplash.com/premium_photo-1682091256608-4a0aaee80595?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8amFwYW5lc2glMjBjbGFzc3xlbnwwfHwwfHx8MA%3D%3D"></div>
+                        </div>
+                        <div class="col-6">
+                            <div class="mb-2"><img class="img-fluid rounded-3" src="https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8a29yZWFuJTIwY2xhc3N8ZW58MHx8MHx8fDA%3D"></div>
+                        </div>
+                        <div class="col-6">
+                            <div class="mb-2"><img class="img-fluid rounded-3" src="https://images.unsplash.com/photo-1629470937845-f3ea7502d14c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8aXRsZXMlMjBjbGFzc3xlbnwwfHwwfHx8MA%3D%3D"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="why-best-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2>Why We Are the Best</h2>
+                <p>A unique learning system designed for personalized teaching and exceptional support.</p>
+            </div>
+            <div class="row g-4">
+                <!-- Card 1 -->
+                <div class="col-md-4">
+                    <div class="icon-card">
+                        <i class="bi bi-person-badge"></i>
+                        <h4>Expert Instructors</h4>
+                        <p>Learn from the most qualified and experienced professionals in the field.</p>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="col-md-4">
+                    <div class="icon-card">
+                        <i class="bi bi-laptop"></i>
+                        <h4>Flexible Online Courses</h4>
+                        <p>Access our courses anytime, anywhere, at your convenience.</p>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="col-md-4">
+                    <div class="icon-card">
+                        <i class="bi bi-headset"></i>
+                        <h4>24/7 Customer Support</h4>
+                        <p>Our dedicated support team is here to assist you around the clock.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container my-5">
+        <!-- Section Title -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="fw-bold">Top Courses</h2>
+            <a href="#" class="text-decoration-none text-primary fw-bold">View All →</a>
+        </div>
+
+        <!-- Courses Grid -->
+        <div class="row g-4">
+            <!-- Course Card -->
+            <div class="col-md-4 col-sm-6">
+                <div class="course-card position-relative">
+                    <img src="https://via.placeholder.com/300x150" alt="Course Image" class="course-image w-100">
+                    <div class="favorite-icon">
+                        <i class="bi bi-heart-fill text-danger"></i>
+                    </div>
+                    <div class="course-body">
+                        <h5 class="fw-bold mb-2">Croatian Language</h5>
+                        <p class="mb-1">Learn Croatian language while exploring its rich culture.</p>
+                        <div class="d-flex align-items-center mb-3">
+                            <span class="text-warning me-2">★★★★★</span>
+                            <span>(15 Reviews)</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="price-old">£129.00</span>
+                                <span class="price-new">£99.00</span>
+                            </div>
+                            <button class="buy-btn">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Duplicate for other cards -->
+            <div class="col-md-4 col-sm-6">
+                <div class="course-card position-relative">
+                    <img src="https://via.placeholder.com/300x150" alt="Course Image" class="course-image w-100">
+                    <div class="favorite-icon">
+                        <i class="bi bi-heart-fill text-danger"></i>
+                    </div>
+                    <div class="course-body">
+                        <h5 class="fw-bold mb-2">Learn Amharic Language</h5>
+                        <p class="mb-1">Complete Amharic course for beginners.</p>
+                        <div class="d-flex align-items-center mb-3">
+                            <span class="text-warning me-2">★★★★★</span>
+                            <span>(15 Reviews)</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="price-old">£129.00</span>
+                                <span class="price-new">£99.00</span>
+                            </div>
+                            <button class="  buy-btn">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more cards as necessary -->
+        </div>
+    </div>
+
+
+    <!-- Courses Section -->
+    <section class="py-5" style="background-color: #f5f7ff;">
+        <div class="container">
+            <div class="container">
+                <div class="row justify-content-center text-center mb-2 mb-lg-4">
+                    <div class="col-12 col-lg-8 col-xxl-7 text-center mx-auto">
+                        <span class="text-muted">Raving Fans</span>
+                        <h2 class="display-5 fw-bold">Our Testimonials</h2>
+                        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta harum ipsum venenatis metus sem veniam eveniet aperiam suscipit.</p>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="row align-items-center p-4 rounded shadow-sm" style="background-color: #ffffff;">
+                            <div class="col-md-4 mb-4 mb-md-0 text-center">
+                                <img alt="Student Image" class="img-fluid rounded-circle" src="https://freefrontend.dev/assets/square-small.png" style="width: 120px; height: 120px;" />
+                            </div>
+                            <div class="col-md-8 ps-md-5">
+                                <div class="text-primary mb-3">
+                                    <svg class="bi bi-quote" fill="currentColor" height="48" viewBox="0 0 16 16" width="48" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 9 7.558V11a1 1 0 0 0 1 1h2Zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 3 7.558V11a1 1 0 0 0 1 1h2Z"
+                                    ></path>
+                                </svg>
+                                </div>
+                                <p class="text-muted fst-italic mb-4" style="font-size: 16px; line-height: 1.6;">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente accusantium nulla, sequi cupiditate exercitationem sit incidunt rerum explicabo. Soluta beatae esse praesentium exercitationem vero harum pariatur adipisci qui veritatis est!
+                                </p>
+                                <h5 class="fw-bold mb-0">Colette Daniel</h5>
+                                <div class="text-muted" style="font-size: 14px;">Students</div>
+                                <div class="text-warning mt-3">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-half"></i>
+                                    <span class="text-dark ms-2">4.6</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+    <div class="container my-5">
+        <section class="secation1">
+            <div class="text-center">
+                <h2 class="faq-header">Frequently Asked Questions</h2>
+                <p class="faq-description">Find answers to commonly asked questions. If you can't find the answer, feel free to reach out to us!</p>
+            </div>
+            <div class="accordion" id="faqAccordion">
+                <!-- Question 1 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            What is the purpose of this FAQ section?
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            This FAQ section provides answers to the most commonly asked questions to help users quickly find the information they need without contacting support.
+                        </div>
+                    </div>
+                </div>
+                <!-- Question 2 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            How can I contact support for further assistance?
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            You can contact our support team by visiting the "Contact Us" page on our website, where you can find options to email, call, or chat with us directly.
+                        </div>
+                    </div>
+                </div>
+                <!-- Question 3 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Can I customize the content of this FAQ section?
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Yes, the FAQ section is fully customizable. You can easily modify the content, styles, and structure to match your website's branding and requirements.
+                        </div>
+                    </div>
+                </div>
+                <!-- Question 4 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFour">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            Is this FAQ section responsive?
+                        </button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Absolutely! This FAQ section is designed to be fully responsive and looks great on devices of all sizes, from mobile phones to large desktop screens.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer class="py-5 bg-dark text-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-3 mb-4">
+                    <img src="https://freefrontend.dev/wp-content/uploads/free-frontend-logo.png" alt="Logo" class="img-fluid mb-3" width="200">
+                    <p>Mountain View, California, United States</p>
+                    <p>Tel: +1 123-456-7890</p>
+                    <p><a href="mailto:hello@yourdomain.com" class="text-light text-decoration-none">hello@yourdomain.com</a></p>
+                </div>
+                <div class="col-6 col-lg-2 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light text-decoration-none">Home</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">About</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Shop</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2 mb-4">
+                    <h5>Useful Info</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light text-decoration-none">How it Works</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">FAQ</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Contacts</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2 mb-4">
+                    <h5>My Account</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light text-decoration-none">Get Help</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">My Orders</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Track Order</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-lg-3">
+                    <h5>Subscribe</h5>
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Email address">
+                        <button class="btn btn-primary">Subscribe</button>
+                    </div>
+                    <p class="small mt-2">Sign up for our newsletter to get the latest updates on features and releases.</p>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center border-top pt-3 mt-3">
+                <p class="small mb-0">© 2023 FreeFrontend.dev. All rights reserved.</p>
+                <div>
+                    <a href="#" class="text-light me-3">Privacy Policy</a>
+                    <a href="#" class="text-light">Terms of Service</a>
+                </div>
+                <div class="social-icons">
+                    <a href="#" class="text-light me-2"><i class="bi bi-pinterest"></i></a>
+                    <a href="#" class="text-light me-2"><i class="bi bi-twitter"></i></a>
+                    <a href="#" class="text-light"><i class="bi bi-facebook"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap and Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
